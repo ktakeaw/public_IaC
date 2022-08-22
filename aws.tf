@@ -7,16 +7,16 @@ resource "aws_instance" "app_server" {
     availability_zone            = "us-west-2c"
     cpu_core_count               = 1
     cpu_threads_per_core         = 1
-    disable_api_termination      = false
-    ebs_optimized                = false
-    get_password_data            = false
-    hibernation                  = false
+    disable_api_termination      = true
+    ebs_optimized                = true
+    get_password_data            = true
+    hibernation                  = true
     id                           = "i-01e03375ba238b384"
     instance_state               = "running"
     instance_type                = "t2.micro"
     ipv6_address_count           = 0
     ipv6_addresses               = []
-    monitoring                   = false
+    monitoring                   = true
     primary_network_interface_id = "eni-068d850de6a4321b7"
     private_dns                  = "ip-172-31-0-139.us-west-2.compute.internal"
     private_ip                   = "172.31.0.139"
@@ -26,7 +26,7 @@ resource "aws_instance" "app_server" {
     security_groups              = [
         "default",
     ]
-    source_dest_check            = true
+    source_dest_check            = false
     subnet_id                    = "subnet-31855d6c"
     tags                         = {
         "Name" = "ExampleAppServerInstance"
@@ -41,7 +41,7 @@ resource "aws_instance" "app_server" {
     }
 
     enclave_options {
-        enabled = false
+        enabled = treu
     }
 
     metadata_options {
